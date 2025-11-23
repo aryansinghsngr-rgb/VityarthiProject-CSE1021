@@ -52,20 +52,6 @@ The code appears functionally sound, but a key refinement is noted:
 
 -----
 
-## README.md for GitHub
-
-````markdown
-# Personal Sleep Tracker (In-Memory)
-
-A simple, command-line application built in Python to track, calculate, and summarize personal sleep duration. This project demonstrates foundational programming concepts, including modular design, data structures, input validation, and date/time manipulation (specifically handling cross-midnight periods).
-
-## Features
-
-* **Menu-Driven Interface:** Easy navigation through a clean, numbered menu.
-* **Duration Calculation:** Accurately calculates sleep duration in hours, automatically adjusting for sleep sessions that start on one day and end the next (cross-midnight).
-* **Input Validation:** Ensures time inputs are in the correct `HH:MM` format and date inputs are in `YYYY-MM-DD` format.
-* **Record Viewing:** Displays all tracked sleep sessions in a neatly formatted table.
-* **Summary Statistics:** Provides key metrics like the total number of records, total sleep time, and **average sleep duration**.
 
 ##  How to Run
 
@@ -90,27 +76,7 @@ python sleep_tracker.py
 
 ##Key Code Highlights
 
-### Cross-Midnight Logic
 
-The core calculation logic in `calculate_sleep_duration` ensures correct duration even when sleep spans two days:
-
-```python
-# ... inside calculate_sleep_duration
-if wake_dt < bed_dt:
-    # If wake time is earlier than bed time, assume the wake up happened the next day
-    wake_dt += timedelta(days=1)
-```
-
-### Data Structure
-
-Sleep records are stored as a list of dictionaries, providing a clear, structured format:
-
-```python
-SleepRecord = Dict[str, Union[str, float]]
-sleep_records: List[SleepRecord] = []
-
-# Example record:
-# {'date': '2025-11-23', 'bed_time': '22:30', 'wake_time': '06:00', 'duration_hours': 7.5}
 ```
 
 ## Important Note on Data
